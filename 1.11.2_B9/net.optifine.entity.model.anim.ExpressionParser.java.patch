@@ -1,0 +1,78 @@
+diff -r -U 3 minecraft\net\optifine\entity\model\anim\ExpressionParser.java minecraft_patched\net\optifine\entity\model\anim\ExpressionParser.java
+--- minecraft\net\optifine\entity\model\anim\ExpressionParser.java
++++ minecraft_patched\net\optifine\entity\model\anim\ExpressionParser.java
+@@ -166,10 +166,10 @@
+    }
+ 
+    private EnumFunctionType getFunctionType(Token token, Deque<Token> deque) throws ParseException {
+-      Token token = (Token)deque.peek();
+-      if(token != null && token.getType() == EnumTokenType.BRACKET_OPEN) {
+-         EnumFunctionType enumfunctiontype1 = EnumFunctionType.parse(token.getText());
+-         checkNull(enumfunctiontype1, "Unknown function: " + token);
++      Token tokenn = (Token)deque.peek();
++      if(tokenn != null && tokenn.getType() == EnumTokenType.BRACKET_OPEN) {
++         EnumFunctionType enumfunctiontype1 = EnumFunctionType.parse(tokenn.getText());
++         checkNull(enumfunctiontype1, "Unknown function: " + tokenn);
+          return enumfunctiontype1;
+       } else {
+          EnumFunctionType enumfunctiontype = EnumFunctionType.parse(token.getText());
+@@ -188,8 +188,8 @@
+          return makeFunction(type, new IExpression[0]);
+       } else {
+          Token token = (Token)deque.poll();
+-         Deque<Token> deque = getGroup(deque, EnumTokenType.BRACKET_CLOSE, true);
+-         IExpression[] aiexpression = this.parseExpressions(deque);
++         Deque<Token> dequee = getGroup(deque, EnumTokenType.BRACKET_CLOSE, true);
++         IExpression[] aiexpression = this.parseExpressions(dequee);
+          return makeFunction(type, aiexpression);
+       }
+    }
+@@ -198,8 +198,8 @@
+       List<IExpression> list = new ArrayList();
+ 
+       while(true) {
+-         Deque<Token> deque = getGroup(deque, EnumTokenType.COMMA, false);
+-         IExpression iexpression = this.parseInfix(deque);
++         Deque<Token> dequee = getGroup(deque, EnumTokenType.COMMA, false);
++         IExpression iexpression = this.parseInfix(dequee);
+          if(iexpression == null) {
+             IExpression[] aiexpression = (IExpression[])((IExpression[])list.toArray(new IExpression[list.size()]));
+             return aiexpression;
+@@ -231,12 +231,12 @@
+    }
+ 
+    private IExpression makeBracketed(Token token, Deque<Token> deque) throws ParseException {
+-      Deque<Token> deque = getGroup(deque, EnumTokenType.BRACKET_CLOSE, true);
+-      return this.parseInfix(deque);
++      Deque<Token> dequee = getGroup(deque, EnumTokenType.BRACKET_CLOSE, true);
++      return this.parseInfix(dequee);
+    }
+ 
+    private static Deque<Token> getGroup(Deque<Token> deque, EnumTokenType tokenTypeEnd, boolean tokenEndRequired) throws ParseException {
+-      Deque<Token> deque = new ArrayDeque();
++      Deque<Token> dequee = new ArrayDeque();
+       int i = 0;
+       Iterator iterator = deque.iterator();
+ 
+@@ -244,10 +244,10 @@
+          Token token = (Token)iterator.next();
+          iterator.remove();
+          if(i == 0 && token.getType() == tokenTypeEnd) {
+-            return deque;
++            return dequee;
+          }
+ 
+-         deque.add(token);
++         dequee.add(token);
+          if(token.getType() == EnumTokenType.BRACKET_OPEN) {
+             ++i;
+          }
+@@ -260,7 +260,7 @@
+       if(tokenEndRequired) {
+          throw new ParseException("Missing end token: " + tokenTypeEnd);
+       } else {
+-         return deque;
++         return dequee;
+       }
+    }
+ 

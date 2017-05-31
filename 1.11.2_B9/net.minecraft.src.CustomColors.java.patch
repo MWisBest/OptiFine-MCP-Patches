@@ -1,0 +1,57 @@
+diff -r -U 3 minecraft\net\minecraft\src\CustomColors.java minecraft_patched\net\minecraft\src\CustomColors.java
+--- minecraft\net\minecraft\src\CustomColors.java
++++ minecraft_patched\net\minecraft\src\CustomColors.java
+@@ -373,7 +373,7 @@
+       String s = "palette.block.";
+       Map map = new HashMap();
+ 
+-      for(String s1 : p_readCustomColormaps_0_.keySet()) {
++      for(String s1 : (Set<String>)((Set)p_readCustomColormaps_0_.keySet())) {
+          String s2 = p_readCustomColormaps_0_.getProperty(s1);
+          if(s1.startsWith(s)) {
+             map.put(s1, s2);
+@@ -1118,7 +1118,7 @@
+       Set set = p_readSpawnEggColors_0_.keySet();
+       int i = 0;
+ 
+-      for(String s : set) {
++      for(String s : (Set<String>)set) {
+          String s1 = p_readSpawnEggColors_0_.getProperty(s);
+          if(s.startsWith(p_readSpawnEggColors_2_)) {
+             String s2 = StrUtils.removePrefix(s, p_readSpawnEggColors_2_);
+@@ -1208,7 +1208,7 @@
+       float[][] afloat1 = new float[aenumdyecolor.length][];
+       int k = 0;
+ 
+-      for(String s : p_readDyeColors_0_.keySet()) {
++      for(String s : (Set<String>)((Set)p_readDyeColors_0_.keySet())) {
+          String s1 = p_readDyeColors_0_.getProperty(s);
+          if(s.startsWith(p_readDyeColors_2_)) {
+             String s2 = StrUtils.removePrefix(s, p_readDyeColors_2_);
+@@ -1260,7 +1260,7 @@
+       Arrays.fill((int[])aint, (int)-1);
+       int i = 0;
+ 
+-      for(String s : p_readTextColors_0_.keySet()) {
++      for(String s : (Set<String>)((Set)p_readTextColors_0_.keySet())) {
+          String s1 = p_readTextColors_0_.getProperty(s);
+          if(s.startsWith(p_readTextColors_2_)) {
+             String s2 = StrUtils.removePrefix(s, p_readTextColors_2_);
+@@ -1299,7 +1299,7 @@
+       Arrays.fill((int[])aint, (int)-1);
+       int i = 0;
+ 
+-      for(String s : p_readMapColors_0_.keySet()) {
++      for(String s : (Set<String>)((Set)p_readMapColors_0_.keySet())) {
+          String s1 = p_readMapColors_0_.getProperty(s);
+          if(s.startsWith(p_readMapColors_2_)) {
+             String s2 = StrUtils.removePrefix(s, p_readMapColors_2_);
+@@ -1327,7 +1327,7 @@
+       Arrays.fill((int[])aint, (int)-1);
+       int i = 0;
+ 
+-      for(String s : p_readPotionColors_0_.keySet()) {
++      for(String s : (Set<String>)((Set)p_readPotionColors_0_.keySet())) {
+          String s1 = p_readPotionColors_0_.getProperty(s);
+          if(s.startsWith(p_readPotionColors_2_)) {
+             int j = getPotionId(s);

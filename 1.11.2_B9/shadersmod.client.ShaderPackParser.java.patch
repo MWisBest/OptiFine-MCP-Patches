@@ -1,0 +1,13 @@
+diff -r -U 3 minecraft\shadersmod\client\ShaderPackParser.java minecraft_patched\shadersmod\client\ShaderPackParser.java
+--- minecraft\shadersmod\client\ShaderPackParser.java
++++ minecraft_patched\shadersmod\client\ShaderPackParser.java
+@@ -200,8 +200,8 @@
+    public static ShaderProfile[] parseProfiles(Properties props, ShaderOption[] shaderOptions) {
+       String s = "profile.";
+       List<ShaderProfile> list = new ArrayList();
+ 
+-      for(String s1 : props.keySet()) {
++      for(String s1 : (Set<String>)((Set)props.keySet())) {
+          if(s1.startsWith(s)) {
+             String s2 = s1.substring(s.length());
+             props.getProperty(s1);

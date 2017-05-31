@@ -1,0 +1,16 @@
+diff -r -U 3 minecraft\net\minecraft\client\renderer\texture\TextureUtil.java minecraft_patched\net\minecraft\client\renderer\texture\TextureUtil.java
+--- minecraft\net\minecraft\client\renderer\texture\TextureUtil.java
++++ minecraft_patched\net\minecraft\client\renderer\texture\TextureUtil.java
+@@ -237,9 +237,9 @@
+          BufferedImage bufferedimage = func_177053_a(iresource.func_110527_b());
+          if(bufferedimage != null) {
+             int j = bufferedimage.getWidth();
+-            int i = bufferedimage.getHeight();
+-            int[] aint1 = new int[j * i];
+-            bufferedimage.getRGB(0, 0, j, i, aint1, 0, j);
++            int k = bufferedimage.getHeight();
++            int[] aint1 = new int[j * k];
++            bufferedimage.getRGB(0, 0, j, k, aint1, 0, j);
+             int[] aint = aint1;
+             return aint;
+          }

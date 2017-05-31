@@ -1,0 +1,12 @@
+diff -r -U 3 minecraft\net\minecraft\src\TextureAnimations.java minecraft_patched\net\minecraft\src\TextureAnimations.java
+--- minecraft\net\minecraft\src\TextureAnimations.java
++++ minecraft_patched\net\minecraft\src\TextureAnimations.java
+@@ -62,7 +62,7 @@
+          IResourcePack iresourcepack = p_getTextureAnimations_0_[i];
+          TextureAnimation[] atextureanimation = getTextureAnimations(iresourcepack);
+          if(atextureanimation != null) {
+-            list.addAll(Arrays.<E>asList(atextureanimation));
++            list.addAll(Arrays.asList(atextureanimation));
+          }
+       }
+ 

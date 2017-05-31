@@ -1,0 +1,13 @@
+diff -r -U 3 minecraft\net\minecraft\src\ChunkUtils.java minecraft_patched\net\minecraft\src\ChunkUtils.java
+--- minecraft\net\minecraft\src\ChunkUtils.java
++++ minecraft_patched\net\minecraft\src\ChunkUtils.java
+@@ -27,7 +27,7 @@
+ 
+    private static ReflectorField findFieldHasEntities(Chunk p_findFieldHasEntities_0_) {
+       try {
+-         List list = new ArrayList();
++         List<Field> list = new ArrayList<Field>();
+          List list1 = new ArrayList();
+          Field[] afield = Chunk.class.getDeclaredFields();
+ 
+

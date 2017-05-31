@@ -1,0 +1,14 @@
+diff -r -U 3 minecraft\net\minecraft\client\particle\ParticleManager.java minecraft_patched\net\minecraft\client\particle\ParticleManager.java
+--- minecraft\net\minecraft\client\particle\ParticleManager.java
++++ minecraft_patched\net\minecraft\client\particle\ParticleManager.java
+@@ -272,9 +272,9 @@
+       GlStateManager.func_187401_a(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
+       GlStateManager.func_179092_a(516, 0.003921569F);
+ 
+       for(int i = 0; i < 3; ++i) {
+          final int j = i;
+-
++//
+          for(int k = 0; k < 2; ++k) {
+             if(!this.field_78876_b[j][k].isEmpty()) {
+                switch(k) {
