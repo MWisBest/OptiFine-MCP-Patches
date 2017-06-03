@@ -1,0 +1,34 @@
+diff -r -U 3 minecraft\net\minecraft\src\ConnectedTextures.java minecraft_patched\net\minecraft\src\ConnectedTextures.java
+--- minecraft\net\minecraft\src\ConnectedTextures.java
++++ minecraft_patched\net\minecraft\src\ConnectedTextures.java
+@@ -1421,14 +1421,14 @@
+       for(int i = 0; i < tileProperties.length; ++i) {
+          ConnectedProperties[] aconnectedproperties = tileProperties[i];
+          if(aconnectedproperties != null) {
+-            list.addAll(Arrays.<E>asList(aconnectedproperties));
++            list.addAll(Arrays.asList(aconnectedproperties));
+          }
+       }
+ 
+       for(int k = 0; k < blockProperties.length; ++k) {
+          ConnectedProperties[] aconnectedproperties2 = blockProperties[k];
+          if(aconnectedproperties2 != null) {
+-            list.addAll(Arrays.<E>asList(aconnectedproperties2));
++            list.addAll(Arrays.asList(aconnectedproperties2));
+          }
+       }
+ 
+@@ -1439,11 +1439,11 @@
+       for(int j = 0; j < aconnectedproperties1.length; ++j) {
+          ConnectedProperties connectedproperties = aconnectedproperties1[j];
+          if(connectedproperties.matchTileIcons != null) {
+-            set1.addAll(Arrays.<E>asList(connectedproperties.matchTileIcons));
++            set1.addAll(Arrays.asList(connectedproperties.matchTileIcons));
+          }
+ 
+          if(connectedproperties.tileIcons != null) {
+-            set.addAll(Arrays.<E>asList(connectedproperties.tileIcons));
++            set.addAll(Arrays.asList(connectedproperties.tileIcons));
+          }
+       }
+ 

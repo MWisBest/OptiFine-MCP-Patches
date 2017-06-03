@@ -1,0 +1,12 @@
+diff -r -U 3 minecraft\net\minecraft\src\Config.java minecraft_patched\net\minecraft\src\Config.java
+--- minecraft\net\minecraft\src\Config.java
++++ minecraft_patched\net\minecraft\src\Config.java
+@@ -692,7 +692,7 @@
+       List list = resourcepackrepository.func_110613_c();
+       List list1 = new ArrayList();
+ 
+-      for(ResourcePackRepository.Entry resourcepackrepository$entry : list) {
++      for(ResourcePackRepository.Entry resourcepackrepository$entry : (List<ResourcePackRepository.Entry>)list) {
+          list1.add(resourcepackrepository$entry.func_110514_c());
+       }
+ 

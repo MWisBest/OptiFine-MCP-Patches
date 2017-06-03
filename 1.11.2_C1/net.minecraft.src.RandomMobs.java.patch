@@ -1,0 +1,27 @@
+diff -r -U 3 minecraft\net\minecraft\src\RandomMobs.java minecraft_patched\net\minecraft\src\RandomMobs.java
+--- minecraft\net\minecraft\src\RandomMobs.java
++++ minecraft_patched\net\minecraft\src\RandomMobs.java
+@@ -68,7 +68,7 @@
+       if(working) {
+          return p_getTextureLocation_0_;
+       } else {
+-         ResourceLocation entity;
++         ResourceLocation loc;
+          try {
+             working = true;
+             if(!initialized) {
+@@ -99,12 +99,12 @@
+                return resourcelocation1;
+             }
+ 
+-            entity = p_getTextureLocation_0_;
++            loc = p_getTextureLocation_0_;
+          } finally {
+             working = false;
+          }
+ 
+-         return entity;
++         return loc;
+       }
+    }
+ 

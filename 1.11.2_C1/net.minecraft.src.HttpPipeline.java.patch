@@ -1,0 +1,13 @@
+diff -r -U 3 minecraft\net\minecraft\src\HttpPipeline.java minecraft_patched\net\minecraft\src\HttpPipeline.java
+--- minecraft\net\minecraft\src\HttpPipeline.java
++++ minecraft_patched\net\minecraft\src\HttpPipeline.java
+@@ -158,7 +158,8 @@
+    }
+ 
+    public static boolean hasActiveRequests() {
+-      for(HttpPipelineConnection httppipelineconnection : mapConnections.values()) {
++      for(Object object : mapConnections.values()) {
++         HttpPipelineConnection httppipelineconnection = (HttpPipelineConnection)object;
+          if(httppipelineconnection.hasActiveRequests()) {
+             return true;
+          }

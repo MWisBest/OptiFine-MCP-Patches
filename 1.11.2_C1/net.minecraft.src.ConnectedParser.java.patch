@@ -1,0 +1,22 @@
+diff -r -U 3 minecraft\net\minecraft\src\ConnectedParser.java minecraft_patched\net\minecraft\src\ConnectedParser.java
+--- minecraft\net\minecraft\src\ConnectedParser.java
++++ minecraft_patched\net\minecraft\src\ConnectedParser.java
+@@ -67,7 +67,7 @@
+                return NO_MATCH_BLOCKS;
+             }
+ 
+-            list.addAll(Arrays.<E>asList(amatchblock));
++            list.addAll(Arrays.asList(amatchblock));
+          }
+ 
+          MatchBlock[] amatchblock1 = (MatchBlock[])((MatchBlock[])list.toArray(new MatchBlock[list.size()]));
+@@ -302,7 +302,8 @@
+    }
+ 
+    public static Comparable getPropertyValue(String p_getPropertyValue_0_, Collection p_getPropertyValue_1_) {
+-      for(Comparable comparable : p_getPropertyValue_1_) {
++      for(Object object : p_getPropertyValue_1_) {
++         Comparable comparable = (Comparable)object;
+          if(getValueName(comparable).equals(p_getPropertyValue_0_)) {
+             return comparable;
+          }

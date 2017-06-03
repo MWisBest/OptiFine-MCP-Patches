@@ -1,0 +1,13 @@
+diff -r -U 3 minecraft\net\minecraft\client\renderer\EntityRenderer.java minecraft_patched\net\minecraft\client\renderer\EntityRenderer.java
+--- minecraft\net\minecraft\client\renderer\EntityRenderer.java
++++ minecraft_patched\net\minecraft\client\renderer\EntityRenderer.java
+@@ -355,8 +355,7 @@
+          int i = 3;
+          double d1 = d0;
+          if(this.field_78531_r.field_71442_b.func_78749_i()) {
+-            d1 = 6.0D;
+-            d0 = d1;
++            d0 = d1 = 6.0D;
+          } else if(d0 > 3.0D) {
+             flag = true;
+          }
