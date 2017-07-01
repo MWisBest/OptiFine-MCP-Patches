@@ -1,0 +1,13 @@
+diff -r -U 3 minecraft\net\minecraft\src\ConnectedParser.java minecraft_patched\net\minecraft\src\ConnectedParser.java
+--- minecraft\net\minecraft\src\ConnectedParser.java
++++ minecraft_patched\net\minecraft\src\ConnectedParser.java
+@@ -305,7 +305,8 @@
+    }
+ 
+    public static Comparable getPropertyValue(String p_getPropertyValue_0_, Collection p_getPropertyValue_1_) {
+-      for(Comparable comparable : p_getPropertyValue_1_) {
++      for(Object object : p_getPropertyValue_1_) {
++         Comparable comparable = (Comparable)object;
+          if (getValueName(comparable).equals(p_getPropertyValue_0_)) {
+             return comparable;
+          }

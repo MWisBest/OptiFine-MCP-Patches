@@ -1,0 +1,21 @@
+diff -r -U 3 minecraft\net\minecraft\src\ModelUtils.java minecraft_patched\net\minecraft\src\ModelUtils.java
+--- minecraft\net\minecraft\src\ModelUtils.java
++++ minecraft_patched\net\minecraft\src\ModelUtils.java
+@@ -28,7 +28,7 @@
+    }
+ 
+    private static void dbgQuads(String p_dbgQuads_0_, List p_dbgQuads_1_, String p_dbgQuads_2_) {
+-      for(BakedQuad bakedquad : p_dbgQuads_1_) {
++      for(BakedQuad bakedquad : (List<BakedQuad>)p_dbgQuads_1_) {
+          dbgQuad(p_dbgQuads_0_, bakedquad, p_dbgQuads_2_);
+       }
+ 
+@@ -75,7 +75,7 @@
+    public static List duplicateQuadList(List p_duplicateQuadList_0_) {
+       List list = new ArrayList();
+ 
+-      for(BakedQuad bakedquad : p_duplicateQuadList_0_) {
++      for(BakedQuad bakedquad : (List<BakedQuad>)p_duplicateQuadList_0_) {
+          BakedQuad bakedquad1 = duplicateQuad(bakedquad);
+          list.add(bakedquad1);
+       }

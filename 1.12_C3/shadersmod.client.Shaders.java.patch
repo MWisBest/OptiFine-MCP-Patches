@@ -1,0 +1,87 @@
+diff -r -U 3 minecraft\shadersmod\client\Shaders.java minecraft_patched\shadersmod\client\Shaders.java
+--- minecraft\shadersmod\client\Shaders.java
++++ minecraft_patched\shadersmod\client\Shaders.java
+@@ -760,9 +760,9 @@
+    }
+ 
+    private static CustomTexture[] loadCustomTextures(Properties props, int stage) {
+       String s = "texture." + STAGE_NAMES[stage] + ".";
+-      Set set = props.keySet();
++      Set<String> set = (Set<String>)((Set)props.keySet());
+       List<CustomTexture> list = new ArrayList<CustomTexture>();
+ 
+       for(String s1 : set) {
+          if (s1.startsWith(s)) {
+@@ -991,9 +991,9 @@
+ 
+             for(int i = 0; i < ashaderoption1.length; ++i) {
+                ShaderOption shaderoption = ashaderoption1[i];
+                if (shaderoption == null) {
+-                  list.add((Object)null);
++                  list.add((ShaderOption)null);
+                } else if (shaderoption instanceof ShaderOptionRest) {
+                   ShaderOption[] ashaderoption2 = getShaderOptionsRest(shaderPackGuiScreens, ashaderoption);
+                   list.addAll(Arrays.asList(ashaderoption2));
+                } else {
+@@ -1275,7 +1275,7 @@
+ 
+    public static void startup(Minecraft mc) {
+       checkShadersModInstalled();
+-      mc = mc;
++      Shaders.mc = mc;
+       mc = Minecraft.func_71410_x();
+       capabilities = GLContext.getCapabilities();
+       glVersionString = GL11.glGetString(7938);
+@@ -1785,7 +1785,7 @@
+    }
+ 
+    private static int createFragShader(String filename) {
+-      int i = ARBShaderObjects.glCreateShaderObjectARB(35632);
++      int i = ARBShaderObjects.glCreateShaderObjectARB(org.lwjgl.opengl.ARBFragmentShader.GL_FRAGMENT_SHADER_ARB);
+       if (i == 0) {
+          return 0;
+       } else {
+@@ -2955,11 +2955,11 @@
+    }
+ 
+-   private static void checkWorldChanged(World world) {
+-      if (currentWorld != world) {
++   private static void checkWorldChanged(World worldd) {
++      if (currentWorld != worldd) {
+          World world = currentWorld;
+-         currentWorld = world;
+-         if (world != null && world != null) {
++         currentWorld = worldd;
++         if (world != null && worldd != null) {
+             int i = world.field_73011_w.func_186058_p().func_186068_a();
+-            int j = world.field_73011_w.func_186058_p().func_186068_a();
++            int j = worldd.field_73011_w.func_186058_p().func_186068_a();
+             boolean flag = shaderPackDimensions.contains(Integer.valueOf(i));
+             boolean flag1 = shaderPackDimensions.contains(Integer.valueOf(j));
+@@ -3803,10 +3803,10 @@
+    }
+ 
+-   public static void setFog(GlStateManager.FogMode fogMode) {
+-      GlStateManager.func_187430_a(fogMode);
+-      fogMode = fogMode.field_187351_d;
++   public static void setFog(GlStateManager.FogMode fogModee) {
++      GlStateManager.func_187430_a(fogModee);
++      fogMode = fogModee.field_187351_d;
+       if (fogEnabled) {
+-         setProgramUniform1i("fogMode", fogMode.field_187351_d);
++         setProgramUniform1i("fogMode", fogModee.field_187351_d);
+       }
+ 
+    }
+@@ -3939,10 +3939,10 @@
+                if (inputstream != null) {
+                   Properties properties = new Properties();
+                   Lang.loadLocaleData(inputstream, properties);
+                   inputstream.close();
+ 
+-                  for(String s4 : properties.keySet()) {
++                  for(String s4 : (Set<String>)((Set)properties.keySet())) {
+                      String s5 = properties.getProperty(s4);
+                      shaderPackResources.put(s4, s5);
+                   }
+                }

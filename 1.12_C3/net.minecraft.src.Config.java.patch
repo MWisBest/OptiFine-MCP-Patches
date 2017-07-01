@@ -1,0 +1,50 @@
+diff -r -U 3 minecraft\net\minecraft\src\Config.java minecraft_patched\net\minecraft\src\Config.java
+--- minecraft\net\minecraft\src\Config.java
++++ minecraft_patched\net\minecraft\src\Config.java
+@@ -771,7 +771,7 @@
+       List list = resourcepackrepository.func_110613_c();
+       List list1 = new ArrayList();
+ 
+-      for(ResourcePackRepository.Entry resourcepackrepository$entry : list) {
++      for(ResourcePackRepository.Entry resourcepackrepository$entry : (List<ResourcePackRepository.Entry>)list) {
+          list1.add(resourcepackrepository$entry.func_110514_c());
+       }
+ 
+@@ -1615,34 +1615,34 @@
+    public static Object[] addObjectToArray(Object[] p_addObjectToArray_0_, Object p_addObjectToArray_1_) {
+       if (p_addObjectToArray_0_ == null) {
+          throw new NullPointerException("The given array is NULL");
+       } else {
+          int i = p_addObjectToArray_0_.length;
+          int j = i + 1;
+-         Object[] aobject = Array.newInstance(p_addObjectToArray_0_.getClass().getComponentType(), j);
++         Object[] aobject = (Object[])((Object[])Array.newInstance(p_addObjectToArray_0_.getClass().getComponentType(), j));
+          System.arraycopy(p_addObjectToArray_0_, 0, aobject, 0, i);
+          aobject[i] = p_addObjectToArray_1_;
+          return aobject;
+       }
+    }
+ 
+    public static Object[] addObjectToArray(Object[] p_addObjectToArray_0_, Object p_addObjectToArray_1_, int p_addObjectToArray_2_) {
+       List list = new ArrayList(Arrays.asList(p_addObjectToArray_0_));
+       list.add(p_addObjectToArray_2_, p_addObjectToArray_1_);
+-      Object[] aobject = Array.newInstance(p_addObjectToArray_0_.getClass().getComponentType(), list.size());
++      Object[] aobject = (Object[])((Object[])Array.newInstance(p_addObjectToArray_0_.getClass().getComponentType(), list.size()));
+       return list.toArray(aobject);
+    }
+ 
+    public static Object[] addObjectsToArray(Object[] p_addObjectsToArray_0_, Object[] p_addObjectsToArray_1_) {
+       if (p_addObjectsToArray_0_ == null) {
+          throw new NullPointerException("The given array is NULL");
+       } else if (p_addObjectsToArray_1_.length == 0) {
+          return p_addObjectsToArray_0_;
+       } else {
+          int i = p_addObjectsToArray_0_.length;
+          int j = i + p_addObjectsToArray_1_.length;
+-         Object[] aobject = Array.newInstance(p_addObjectsToArray_0_.getClass().getComponentType(), j);
++         Object[] aobject = (Object[])((Object[])Array.newInstance(p_addObjectsToArray_0_.getClass().getComponentType(), j));
+          System.arraycopy(p_addObjectsToArray_0_, 0, aobject, 0, i);
+          System.arraycopy(p_addObjectsToArray_1_, 0, aobject, i, p_addObjectsToArray_1_.length);
+          return aobject;
+       }
+    }

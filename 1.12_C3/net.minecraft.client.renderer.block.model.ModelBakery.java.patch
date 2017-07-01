@@ -1,0 +1,14 @@
+diff -r -U 3 minecraft\net\minecraft\client\renderer\block\model\ModelBakery.java minecraft_patched\net\minecraft\client\renderer\block\model\ModelBakery.java
+--- minecraft\net\minecraft\client\renderer\block\model\ModelBakery.java
++++ minecraft_patched\net\minecraft\client\renderer\block\model\ModelBakery.java
+@@ -557,9 +557,9 @@
+    }
+ 
+    @Nullable
+    public IBakedModel func_177578_a(ModelBlock p_177578_1_, ModelRotation p_177578_2_, boolean p_177578_3_) {
+-      return this.bakeModel(p_177578_1_, p_177578_2_, p_177578_3_);
++      return this.bakeModel(p_177578_1_, (ITransformation)p_177578_2_, p_177578_3_);
+    }
+ 
+    protected IBakedModel bakeModel(ModelBlock p_bakeModel_1_, ITransformation p_bakeModel_2_, boolean p_bakeModel_3_) {
+       TextureAtlasSprite textureatlassprite = this.field_177599_g.get(new ResourceLocation(p_bakeModel_1_.func_178308_c("particle")));

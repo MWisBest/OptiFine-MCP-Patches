@@ -1,0 +1,15 @@
+diff -r -U 3 minecraft\net\minecraft\src\CacheObjectArray.java minecraft_patched\net\minecraft\src\CacheObjectArray.java
+--- minecraft\net\minecraft\src\CacheObjectArray.java
++++ minecraft_patched\net\minecraft\src\CacheObjectArray.java
+@@ -92,10 +92,10 @@
+    private static long testNewObjDyn(Class p_testNewObjDyn_0_, int p_testNewObjDyn_1_, int p_testNewObjDyn_2_) {
+       long i = System.currentTimeMillis();
+ 
+       for(int j = 0; j < p_testNewObjDyn_2_; ++j) {
+-         Object[] aobject = Array.newInstance(p_testNewObjDyn_0_, p_testNewObjDyn_1_);
++         Object[] aobject = (Object[])((Object[])Array.newInstance(p_testNewObjDyn_0_, p_testNewObjDyn_1_));
+       }
+ 
+       long k = System.currentTimeMillis();
+       return k - i;
+    }

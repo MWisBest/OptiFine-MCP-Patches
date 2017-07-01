@@ -1,0 +1,13 @@
+diff -r -U 3 minecraft\net\minecraft\src\ConnectedProperties.java minecraft_patched\net\minecraft\src\ConnectedProperties.java
+--- minecraft\net\minecraft\src\ConnectedProperties.java
++++ minecraft_patched\net\minecraft\src\ConnectedProperties.java
+@@ -333,7 +333,8 @@
+    }
+ 
+    public static IProperty getProperty(String p_getProperty_0_, Collection p_getProperty_1_) {
+-      for(IProperty iproperty : p_getProperty_1_) {
++      for(Object object : p_getProperty_1_) {
++         IProperty iproperty = (IProperty)object;
+          if (p_getProperty_0_.equals(iproperty.func_177701_a())) {
+             return iproperty;
+          }

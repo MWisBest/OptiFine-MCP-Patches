@@ -1,0 +1,22 @@
+diff -r -U 3 minecraft\net\minecraft\client\renderer\texture\TextureMap.java minecraft_patched\net\minecraft\client\renderer\texture\TextureMap.java
+--- minecraft\net\minecraft\client\renderer\texture\TextureMap.java
++++ minecraft_patched\net\minecraft\client\renderer\texture\TextureMap.java
+@@ -99,8 +99,8 @@
+       this.field_94249_f.func_110969_c(i);
+       int[][] aint1 = new int[this.field_147636_j + 1][];
+       aint1[0] = aint;
+-      this.field_94249_f.func_110968_a(Lists.newArrayList(aint1));
++      this.field_94249_f.func_110968_a(Lists.<int[][]>newArrayList(aint1));
+       this.field_94249_f.setIndexInMap(this.counterIndexInMap++);
+    }
+ 
+    public void func_110551_a(IResourceManager p_110551_1_) throws IOException {
+@@ -602,7 +602,7 @@
+    private int detectMinimumSpriteSize(Map p_detectMinimumSpriteSize_1_, IResourceManager p_detectMinimumSpriteSize_2_, int p_detectMinimumSpriteSize_3_) {
+       Map map = new HashMap();
+ 
+-      for(Entry entry : p_detectMinimumSpriteSize_1_.entrySet()) {
++      for(Entry entry : (Set<Entry>)p_detectMinimumSpriteSize_1_.entrySet()) {
+          TextureAtlasSprite textureatlassprite = (TextureAtlasSprite)entry.getValue();
+          ResourceLocation resourcelocation = new ResourceLocation(textureatlassprite.func_94215_i());
+          ResourceLocation resourcelocation1 = this.completeResourceLocation(resourcelocation);

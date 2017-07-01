@@ -1,0 +1,11 @@
+diff -r -U 3 minecraft\shadersmod\client\ShadersTex.java minecraft_patched\shadersmod\client\ShadersTex.java
+--- minecraft\shadersmod\client\ShadersTex.java
++++ minecraft_patched\shadersmod\client\ShadersTex.java
+@@ -735,6 +735,6 @@
+       int k = 0;
+       int[] aint = null;
+ 
+-      for(String s : list) {
++      for(String s : (List<String>)list) {
+          if (s != null) {
+             try {
