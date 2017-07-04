@@ -1,0 +1,12 @@
+diff -r -U 3 minecraft\net\minecraft\src\GuiMessage.java minecraft_patched\net\minecraft\src\GuiMessage.java
+--- minecraft\net\minecraft\src\GuiMessage.java
++++ minecraft_patched\net\minecraft\src\GuiMessage.java
+@@ -38,7 +38,7 @@
+       this.func_73732_a(this.field_146289_q, this.messageLine1, this.field_146294_l / 2, 70, 16777215);
+       int i = 90;
+ 
+-      for(String s : this.listLines2) {
++      for(String s : (List<String>)this.listLines2) {
+          this.func_73732_a(this.field_146289_q, s, this.field_146294_l / 2, i, 16777215);
+          i += this.field_146289_q.field_78288_b;
+       }

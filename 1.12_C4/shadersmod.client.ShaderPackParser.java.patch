@@ -1,0 +1,30 @@
+diff -r -U 3 minecraft\shadersmod\client\ShaderPackParser.java minecraft_patched\shadersmod\client\ShaderPackParser.java
+--- minecraft\shadersmod\client\ShaderPackParser.java
++++ minecraft_patched\shadersmod\client\ShaderPackParser.java
+@@ -195,7 +195,7 @@
+       String s = "profile.";
+       List<ShaderProfile> list = new ArrayList<ShaderProfile>();
+ 
+-      for(String s1 : props.keySet()) {
++      for(String s1 : (Set<String>)((Set)props.keySet())) {
+          if (s1.startsWith(s)) {
+             String s2 = s1.substring(s.length());
+             props.getProperty(s1);
+@@ -325,7 +325,7 @@
+          for(int i = 0; i < astring.length; ++i) {
+             String s1 = astring[i];
+             if (s1.equals("<empty>")) {
+-               list.add((Object)null);
++               list.add(null);
+             } else if (set.contains(s1)) {
+                Config.warn("[Shaders] Duplicate option: " + s1 + ", key: " + key);
+             } else {
+@@ -354,7 +354,7 @@
+                   ShaderOption shaderoption = ShaderUtils.getShaderOption(s1, shaderOptions);
+                   if (shaderoption == null) {
+                      Config.warn("[Shaders] Invalid option: " + s1 + ", key: " + key);
+-                     list.add((Object)null);
++                     list.add(null);
+                   } else {
+                      shaderoption.setVisible(true);
+                      list.add(shaderoption);

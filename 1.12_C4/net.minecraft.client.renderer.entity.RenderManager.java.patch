@@ -1,0 +1,30 @@
+diff -r -U 3 minecraft\net\minecraft\client\renderer\entity\RenderManager.java minecraft_patched\net\minecraft\client\renderer\entity\RenderManager.java
+--- minecraft\net\minecraft\client\renderer\entity\RenderManager.java
++++ minecraft_patched\net\minecraft\client\renderer\entity\RenderManager.java
+@@ -118,7 +118,7 @@
+ import net.optifine.entity.model.CustomEntityModels;
+ 
+ public class RenderManager {
+-   private final Map<Class<? extends Entity>, Render<? extends Entity>> field_78729_o = Maps.<Class<? extends Entity>, Render<? extends Entity>>newHashMap();
++   private final Map<Class, Render> field_78729_o = Maps.<Class, Render>newHashMap();
+    private final Map<String, RenderPlayer> field_178636_l = Maps.<String, RenderPlayer>newHashMap();
+    private final RenderPlayer field_178637_m;
+    private FontRenderer field_78736_p;
+@@ -244,7 +244,7 @@
+    public <T extends Entity> Render<T> func_78715_a(Class<? extends Entity> p_78715_1_) {
+       Render<T> render = (Render)this.field_78729_o.get(p_78715_1_);
+       if (render == null && p_78715_1_ != Entity.class) {
+-         render = this.<T>func_78715_a(p_78715_1_.getSuperclass());
++         render = this.func_78715_a((Class<? extends Entity>)p_78715_1_.getSuperclass());
+          this.field_78729_o.put(p_78715_1_, render);
+       }
+ 
+@@ -256,7 +256,7 @@
+       if (p_78713_1_ instanceof AbstractClientPlayer) {
+          String s = ((AbstractClientPlayer)p_78713_1_).func_175154_l();
+          RenderPlayer renderplayer = this.field_178636_l.get(s);
+-         return renderplayer != null ? renderplayer : this.field_178637_m;
++         return (Render<T>)(renderplayer != null ? renderplayer : this.field_178637_m);
+       } else {
+          return this.<T>func_78715_a(p_78713_1_.getClass());
+       }

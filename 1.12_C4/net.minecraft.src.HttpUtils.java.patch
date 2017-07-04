@@ -1,0 +1,12 @@
+diff -r -U 3 minecraft\net\minecraft\src\HttpUtils.java minecraft_patched\net\minecraft\src\HttpUtils.java
+--- minecraft\net\minecraft\src\HttpUtils.java
++++ minecraft_patched\net\minecraft\src\HttpUtils.java
+@@ -68,7 +68,7 @@
+          httpurlconnection = (HttpURLConnection)url.openConnection(Minecraft.func_71410_x().func_110437_J());
+          httpurlconnection.setRequestMethod("POST");
+          if (p_post_1_ != null) {
+-            for(String s : p_post_1_.keySet()) {
++            for(String s : (java.util.Set<String>)p_post_1_.keySet()) {
+                String s1 = "" + p_post_1_.get(s);
+                httpurlconnection.setRequestProperty(s, s1);
+             }

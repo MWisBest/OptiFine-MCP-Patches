@@ -1,0 +1,12 @@
+diff -r -U 3 minecraft\net\minecraft\src\SmartLeaves.java minecraft_patched\net\minecraft\src\SmartLeaves.java
+--- minecraft\net\minecraft\src\SmartLeaves.java
++++ minecraft_patched\net\minecraft\src\SmartLeaves.java
+@@ -103,7 +103,7 @@
+                   } else if (list.size() != 6) {
+                      return null;
+                   } else {
+-                     for(BakedQuad bakedquad : list) {
++                     for(BakedQuad bakedquad : (List<BakedQuad>)list) {
+                         List list1 = ibakedmodel.func_188616_a((IBlockState)null, bakedquad.func_178210_d(), 0L);
+                         if (list1.size() > 0) {
+                            return null;
